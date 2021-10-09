@@ -15,22 +15,30 @@ const imagensCards = [
   {
     img: house1,
     title: "Casa 1",
-    subtitle: "Casa Grande"
+    subtitle: "Casa Grande",
+    banheiro: 3,
+    quarto: 6
   },
   {
     img: house2,
     title: "Casa 2",
-    subtitle: "Casa Grande"
+    subtitle: "Casa Grande",
+    banheiro: 1,
+    quarto: 2
   },
   {
     img: house3,
     title: "Casa 3",
-    subtitle: "Casa Grande"
+    subtitle: "Casa Grande",
+    banheiro: 2,
+    quarto: 5
   },
   {
     img: house4,
     title: "Casa 4",
-    subtitle: "Casa Grande"
+    subtitle: "Casa Grande",
+    banheiro: 4,
+    quarto: 12
   }
 ];
 
@@ -71,7 +79,7 @@ export default function Home() {
 
   return (
     <Container>
-      <ScrollContainer>
+      <ScrollContainer showsVerticalScrollIndicator={false}>
       <TextoLocalizacao>Localização</TextoLocalizacao>
       <ContainerHeader>
         <TitleHeader>Paulo</TitleHeader>
@@ -83,7 +91,7 @@ export default function Home() {
           value={search}
           placeholder="O que deseja buscar?"
         />
-        <Botao>
+        <Botao onPress={() => navigator.navigate('Details')}>
           <Image source={filter} />
         </Botao>
       </ContainerSearch>
@@ -105,6 +113,7 @@ export default function Home() {
                         title={item.title}
                         subtitle={item.subtitle}
                         key={chave}
+                        item={item}
                     />
                 )
                 }

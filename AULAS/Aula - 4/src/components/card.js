@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useNavigation } from '@react-navigation/native';
 
-const Container = styled.View`
+const Container = styled.TouchableOpacity`
     height: 272px;
     width: 222px;
     border-radius: 20px;
@@ -27,10 +28,14 @@ const Subtitle = styled.Text`
     margin-left: 20px;
 `;
 
-const Card = ({img, title, subtitle}) => {
+const Card = ({img, title, subtitle, item}) => {
+
+    const navigator = useNavigation()
 
     return (
-        <Container>
+        <Container onPress={() => navigator.navigate('Details',{
+            data: item
+        })}>
             <Image source={img} />
             <Title>{title}</Title>
             <Subtitle>{subtitle}</Subtitle>
